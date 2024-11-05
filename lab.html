@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Date Invitation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe3f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #ff5f87;
+            font-size: 2.2em;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .date-option {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .date-option img {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .date-option img:hover {
+            transform: scale(1.1);
+        }
+
+        button, select {
+            background-color: #ff5f87;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4064;
+        }
+
+        #dateDetails, #loveNote, #chosenLocation {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .heart-emoji {
+            font-size: 1.5em;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hi, Da'arin! ❤️</h1>
+        <p>I have a little surprise for you. Are you ready? 💖</p>
+        <button onclick="startSurprise()">Click Here to Start 💫</button>
+
+        <div id="dateDetails">
+            <h2>Let’s Go on a Date! 🥂</h2>
+            <p>Choose a place for our special moment:</p>
+            
+            <div class="date-option" onclick="chooseLocation('beach')">
+                <img src="beach.png" alt="Beach">
+                <p>The Beach at Sunset 🌅</p>
+            </div>
+            
+            <div class="date-option" onclick="chooseLocation('park')">
+                <img src="park.png" alt="Park">
+                <p>A Walk in the Park 🌳</p>
+            </div>
+            
+            <div class="date-option" onclick="chooseLocation('restaurant')">
+                <img src="restaurant.png" alt="Restaurant">
+                <p>Our Favorite Restaurant 🍽️</p>
+            </div>
+
+            <p id="chosenLocation"></p>
+
+            <h3>Here’s a Special Note for You 💌</h3>
+            <p>Click to read</p>
+            <button onclick="showLoveNote()">💌 Open Love Note</button>
+            <p id="loveNote">I love you so much, and I’m counting down the days until our date. Thank you for being my everything. ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        
+        function startSurprise() {
+            document.getElementById("dateDetails").style.display = "block";
+            alert("Surprise! 😍 Let's plan something special together!");
+        }
+
+        function chooseLocation(location) {
+            let message;
+            
+            switch(location) {
+                case 'beach':
+                    message = "Perfect! We’ll enjoy a beautiful sunset at the beach together. 🌅";
+                    break;
+                case 'park':
+                    message = "A lovely choice! Let’s take a peaceful walk in the park. 🌳";
+                    break;
+                case 'restaurant':
+                    message = "Our favorite spot! Let’s have a cozy dinner date at the restaurant. 🍽️";
+                    break;
+                default:
+                    message = "";
+                    break;
+            }
+            document.getElementById("chosenLocation").innerText = message;
+            document.getElementById("chosenLocation").style.display = message ? "block" : "none";
+        }
+
+        function showLoveNote() {
+            document.getElementById("loveNote").style.display = "block";
+            alert("Here's a little love note for you. 💖");
+        }
+    </script>
+</body>
+</html>
